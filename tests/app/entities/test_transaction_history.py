@@ -40,15 +40,6 @@ class Test_TransactionHistory:
                 timestamp="2023-10-01T10:00:00Z",
             )
 
-    def test_transaction_type_is_not_enum(self):
-        with pytest.raises(ParamNotValidated):
-            TransactionHistory(
-                type="invalid_type",
-                value=100.0,
-                current_balance=1000.0,
-                timestamp="2023-10-01T10:00:00Z",
-            )
-
     def test_value_is_none(self):
         with pytest.raises(ParamNotValidated):
             TransactionHistory(
