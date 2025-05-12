@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from src.app.entities.account import Account
+from ..entities.account import Account
 
 class IAccountRepository(ABC):
 

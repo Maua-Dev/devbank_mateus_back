@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from src.app.entities import transaction
+from ..entities import transaction
 
 class ITransactionRepository(ABC):
 

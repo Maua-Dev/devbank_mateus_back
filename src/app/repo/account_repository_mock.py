@@ -1,5 +1,5 @@
-from src.app.entities.account import Account
-from src.app.repo.account_repository_interface import IAccountRepository
+from ..entities.account import Account
+from .account_repository_interface import IAccountRepository
 
 class AccountRepositoryMock(IAccountRepository):
     account: Account
