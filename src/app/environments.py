@@ -2,17 +2,15 @@
 from enum import Enum
 import os
 
-<<<<<<< Updated upstream
-from .errors.environment_errors import EnvironmentNotFound
+from src.app.repo.account_repository_interface import IAccountRepository
+from src.app.repo.transaction_history_repository_interface import ITransactionHistoryRepository
+from src.app.repo.transaction_repository_interface import ITransactionRepository
 
-from .repo.item_repository_interface import IItemRepository
-=======
 from src.app.repo.account_repository_interface import IAccountRepository
 from src.app.repo.transaction_history_repository_interface import ITransactionHistoryRepository
 from src.app.repo.transaction_repository_interface import ITransactionRepository
 
 from src.app.errors.environment_errors import EnvironmentNotFound
->>>>>>> Stashed changes
 
 
 class STAGE(Enum):
@@ -41,6 +39,33 @@ class Environments:
             self._configure_local()
 
         self.stage = STAGE[os.environ.get("STAGE")]
+        
+    @staticmethod
+    def get_transaction_repo() -> ITransactionRepository:
+        if Environments.get_envs().stage == STAGE.TEST:
+            from .repo.transaction_repository_mock import TransactionRepositoryMock
+            return TransactionRepositoryMock
+        # use "elif" conditional to add other stages
+        else:
+            raise EnvironmentNotFound("STAGE")
+        
+    @staticmethod
+    def get_transaction_history_repo() -> ITransactionHistoryRepository:
+        if Environments.get_envs().stage == STAGE.TEST:
+            from .repo.transaction_history_repository_mock import TransactionHistoryRepositoryMock
+            return TransactionHistoryRepositoryMock
+        # use "elif" conditional to add other stages
+        else:
+            raise EnvironmentNotFound("STAGE")
+        
+    @staticmethod
+    def get_account_repo() -> IAccountRepository:
+        if Environments.get_envs().stage == STAGE.TEST:
+            from .repo.account_repository_mock import AccountRepositoryMock
+            return AccountRepositoryMock
+        # use "elif" conditional to add other stages
+        else:
+            raise EnvironmentNotFound("STAGE")
         
 
     @staticmethod
