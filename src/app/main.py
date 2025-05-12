@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 from fastapi import FastAPI, HTTPException
 from mangum import Mangum
 
@@ -53,12 +53,12 @@ def deposit(request: dict):
         "type": TransactionTypeEnum.DEPOSIT,
         "value": totalSum,
         "current_balance": updatedAccount.current_balance,
-        "timestamp": datetime.datetime.now().isoformat(),
+        "timestamp": datetime.now().isoformat(),
     })
 
     return {
         "current_balance": updatedAccount.current_balance,
-        "timestamp": datetime.datetime.now().isoformat(),
+        "timestamp": datetime.now().isoformat(),
     }
 
 @app.post("/withdraw", status_code=201)
@@ -93,12 +93,12 @@ def withdraw(request: dict):
         "type": TransactionTypeEnum.WITHDRAW,
         "value": totalSum,
         "current_balance": updatedAccount.current_balance,
-        "timestamp": datetime.datetime.now().isoformat(),
+        "timestamp": datetime.now().isoformat(),
     })
 
     return {
         "current_balance": updatedAccount.current_balance,
-        "timestamp": datetime.datetime.now().isoformat(),
+        "timestamp": datetime.now().isoformat(),
     }
 
 @app.get("/history")
