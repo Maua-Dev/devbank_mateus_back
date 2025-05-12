@@ -1,7 +1,7 @@
 from typing import List
-from src.app.entities.transaction_history import TransactionHistory
-from src.app.enums.transaction_type_enum import TransactionTypeEnum
-from src.app.repo.transaction_history_repository_interface import ITransactionHistoryRepository
+from ..entities.transaction_history import TransactionHistory
+from ..enums.transaction_type_enum import TransactionTypeEnum
+from .transaction_history_repository_interface import ITransactionHistoryRepository
 
 
 class TransactionHistoryRepositoryMock(ITransactionHistoryRepository):

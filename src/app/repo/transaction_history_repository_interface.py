@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import List
 
-from src.app.entities.transaction_history import TransactionHistory
+from ..entities.transaction_history import TransactionHistory
 
 class ITransactionHistoryRepository(ABC):
 

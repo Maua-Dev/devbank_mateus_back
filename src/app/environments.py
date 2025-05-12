@@ -2,15 +2,15 @@
 from enum import Enum
 import os
 
-from src.app.repo.account_repository_interface import IAccountRepository
-from src.app.repo.transaction_history_repository_interface import ITransactionHistoryRepository
-from src.app.repo.transaction_repository_interface import ITransactionRepository
+from .repo.account_repository_interface import IAccountRepository
+from .repo.transaction_history_repository_interface import ITransactionHistoryRepository
+from .repo.transaction_repository_interface import ITransactionRepository
 
-from src.app.repo.account_repository_interface import IAccountRepository
-from src.app.repo.transaction_history_repository_interface import ITransactionHistoryRepository
-from src.app.repo.transaction_repository_interface import ITransactionRepository
+from .repo.account_repository_interface import IAccountRepository
+from .repo.transaction_history_repository_interface import ITransactionHistoryRepository
+from .repo.transaction_repository_interface import ITransactionRepository
 
-from src.app.errors.environment_errors import EnvironmentNotFound
+from .errors.environment_errors import EnvironmentNotFound
 
 
 class STAGE(Enum):
